@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel test suite" parallel="tests" thread-count="3">
+
+    <listeners>
+        <listener class-name="ListenerTest"/>
+    </listeners>
+
+    <parameter name="myParam" value="This is the value for a parameter"/>
+
+    <test name="Test1">
+        <groups>
+            <run>
+                <include name="functest"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="SimpleTest"/>
+        </classes>
+    </test>
+
+</suite>
