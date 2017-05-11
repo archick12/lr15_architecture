@@ -17,10 +17,16 @@ public class SimpleTest {
         Assert.assertTrue(false);
     }
 
-    @Parameters({"myParam"})
     @Test(groups = {"functest"})
-    public void testMethod2(String myParam) {
-        // System.out.println("I got a parameter: " + myParam);
-        Assert.assertTrue(true);
+    public void loginTest() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.open();
+        loginPage.enterUsername();
+        loginPage.enterPassword();
+        loginPage.clickLogin();
+
+
     }
+
+
 }
