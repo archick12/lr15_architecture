@@ -14,15 +14,20 @@ public class LoginPage {
     }
 
     public void enterUsername() {
-        driver.findElement(By.id("login-form-username")).sendKeys("katherinebilous");
+        driver.findElement(By.id("login-form-username")).sendKeys("a.a.piluck");
     }
 
     public void enterPassword() {
-        driver.findElement(By.id("login-form-password")).sendKeys("Polis484)");
+        driver.findElement(By.id("login-form-password")).sendKeys("111111");
     }
 
     public void clickLogin() {
-        driver.findElement(By.id("login-form-submit")).click();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(By.id("login-form-submit")).submit();
     }
 
 }

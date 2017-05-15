@@ -1,4 +1,3 @@
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -20,7 +19,6 @@ public class RemoteWebDriverFactory {
         if (browserName.toLowerCase().contains("firefox")) {
             capability = DesiredCapabilities.firefox();
             capability.setBrowserName("firefox" );
-            capability.setPlatform(Platform.LINUX);
         }
         if (browserName.toLowerCase().contains("internet")) {
             capability = DesiredCapabilities.internetExplorer();
@@ -28,7 +26,6 @@ public class RemoteWebDriverFactory {
         if (browserName.toLowerCase().contains("chrome")) {
             capability = DesiredCapabilities.chrome();
             capability.setBrowserName("chrome" );
-            capability.setPlatform(Platform.LINUX);
         }
 
         WebDriver driver = new RemoteWebDriver(hostURL, capability);
