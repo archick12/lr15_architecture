@@ -2,6 +2,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import ui.LoginPage;
 
 public class SimpleTest {
 
@@ -24,7 +25,7 @@ public class SimpleTest {
         loginPage.enterUsername();
         loginPage.enterPassword();
         loginPage.clickLogin();
-
+        loginPage.dragAndDrop();
 
     }
 

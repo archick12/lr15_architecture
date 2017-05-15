@@ -1,3 +1,5 @@
+package utils;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -18,18 +20,21 @@ public class RemoteWebDriverFactory {
 
         if (browserName.toLowerCase().contains("firefox")) {
             capability = DesiredCapabilities.firefox();
-            capability.setBrowserName("firefox" );
+            capability.setBrowserName("firefox");
         }
         if (browserName.toLowerCase().contains("internet")) {
             capability = DesiredCapabilities.internetExplorer();
         }
         if (browserName.toLowerCase().contains("chrome")) {
             capability = DesiredCapabilities.chrome();
-            capability.setBrowserName("chrome" );
+            capability.setBrowserName("chrome");
         }
 
         WebDriver driver = new RemoteWebDriver(hostURL, capability);
-        //  driver.manage().window().maximize();
+//       Если захотите локально один браузер запустить
+//        WebDriver driver = new FirefoxDriver();
+//        System.setProperty("webdriver.gecko.driver", "C:\\Windows\\geckodriver.exe");
+        driver.manage().window().maximize();
         return driver;
     }
 }
