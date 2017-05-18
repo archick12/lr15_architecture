@@ -7,6 +7,7 @@
 
     <parameter name="myParam" value="This is the value for a parameter"/>
     <parameter name="browserName" value="chrome"/>
+    <parameter name="implicitWaitInSeconds" value="30"/>
 
     <test name="Test1">
         <groups>

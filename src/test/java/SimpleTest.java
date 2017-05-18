@@ -18,7 +18,7 @@ public class SimpleTest {
         Assert.assertTrue(true);
     }
 
-    @Test(groups = {"functest"})
+    @Test(groups = {"functest", "slowTest"})
     public void loginTest() {
         LoginPage loginPage = new LoginPage();
         loginPage.open();

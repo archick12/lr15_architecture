@@ -13,11 +13,22 @@ public class ListenerTest implements ITestListener {
     final static Logger logger = Logger.getLogger(ListenerTest.class);
 
     public void onTestStart(ITestResult iTestResult) {
+
+
         String browserName = iTestResult.getTestContext().getCurrentXmlTest().getParameter("browserName");
+        String implicitWaitInSeconds = iTestResult.getTestContext().getCurrentXmlTest().getParameter("implicitWaitInSeconds");
 
         WebDriver driver = RemoteWebDriverFactory.createInstance(browserName);
         RemoteDriverManager.setWebDriver(driver);
-        RemoteDriverManager.getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        RemoteDriverManager.getDriver().manage().timeouts().implicitlyWait(Integer.parseInt(implicitWaitInSeconds), TimeUnit.SECONDS);
+
+        // For slow internet and slow test suite, slower than rest of the tests
+        String[] groups = iTestResult.getMethod().getGroups();
+        for (String group : groups) {
+            if (group.contains("slow")) {
+                RemoteDriverManager.getDriver().manage().timeouts().implicitlyWait(Integer.parseInt(implicitWaitInSeconds) + 50, TimeUnit.SECONDS);
+            }
+        }
     }
 
     public void onTestSuccess(ITestResult iTestResult) {
