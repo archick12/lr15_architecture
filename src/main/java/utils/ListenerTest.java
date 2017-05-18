@@ -6,6 +6,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.util.concurrent.TimeUnit;
+
 public class ListenerTest implements ITestListener {
 
     final static Logger logger = Logger.getLogger(ListenerTest.class);
@@ -15,6 +17,7 @@ public class ListenerTest implements ITestListener {
 
         WebDriver driver = RemoteWebDriverFactory.createInstance(browserName);
         RemoteDriverManager.setWebDriver(driver);
+        RemoteDriverManager.getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
 
     public void onTestSuccess(ITestResult iTestResult) {
@@ -62,6 +65,7 @@ public class ListenerTest implements ITestListener {
     }
 
     public void onFinish(ITestContext iTestContext) {
+        RemoteDriverManager.getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         RemoteDriverManager.closeDriver();
     }
 }

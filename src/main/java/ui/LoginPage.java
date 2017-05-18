@@ -31,6 +31,8 @@ public class LoginPage {
         driver.findElement(By.id("login-form-submit")).submit();
     }
 
+
+
     public void dragAndDrop() {
         driver.get("http://soft.it-hillel.com.ua:8080/secure/RapidBoard.jspa?rapidView=13&quickFilter=121");
 
