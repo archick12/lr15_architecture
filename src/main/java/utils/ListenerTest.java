@@ -53,6 +53,7 @@ public class ListenerTest implements ITestListener {
 
         //logs an error message with parameter
         logger.error("This is error : " + testNGUsersParameter);
+        logger.info("This is info : " + testNGUsersParameter);
 
         // logs an exception thrown from somewhere
         // logger.error("This is error", exception);
